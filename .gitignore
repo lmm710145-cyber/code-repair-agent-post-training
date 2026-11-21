@@ -1,0 +1,27 @@
+# Credentials and machine-specific overrides
+.env
+.env.*
+!.env.example
+configs/*.local.json
+# External data, model weights, outputs, and caches
+workspace/
+data/
+models/
+checkpoints/
+outputs/
+reports/
+*.safetensors
+*.pt
+*.bin
+*.tar
+*.tar.gz
+*.zip
+.venv*/
+.envs/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+unsloth_compiled_cache/

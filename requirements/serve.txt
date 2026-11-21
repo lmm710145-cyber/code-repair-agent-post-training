@@ -1,0 +1,4 @@
+# Separate environment: vLLM resolves its own Torch (reference environment: 2.14.0).
+vllm==0.33.0
+transformers==5.17.0
+mini-swe-agent==2.4.6

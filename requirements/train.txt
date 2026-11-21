@@ -1,0 +1,8 @@
+# Install Torch appropriate to the driver first; see docs/setup.md.
+transformers==5.17.0
+peft==0.21.2
+unsloth==2026.11.3
+unsloth_zoo==2026.11.3
+safetensors==0.8.0
+accelerate==1.15.0
+mini-swe-agent==2.4.6

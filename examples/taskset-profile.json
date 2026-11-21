@@ -1,0 +1,90 @@
+{
+  "description": "Metadata only: external task assets are not bundled. No model evaluation results.",
+  "task_count": 300,
+  "repository_count": 17,
+  "split_counts": {
+    "train": 200,
+    "dev": 50,
+    "test": 50
+  },
+  "defect_type_counts": {
+    "api_contract": 44,
+    "boundary_defaults": 41,
+    "parsing_encoding": 51,
+    "rendering_layout": 28,
+    "resource_lifecycle": 27,
+    "semantic_transform": 35,
+    "state_concurrency": 35,
+    "validation_errors": 39
+  },
+  "repositories": {
+    "Kludex/starlette": {
+      "split": "train",
+      "task_count": 24
+    },
+    "Textualize/rich": {
+      "split": "test",
+      "task_count": 9
+    },
+    "agronholm/anyio": {
+      "split": "dev",
+      "task_count": 20
+    },
+    "encode/httpcore": {
+      "split": "dev",
+      "task_count": 1
+    },
+    "fsspec/filesystem_spec": {
+      "split": "train",
+      "task_count": 71
+    },
+    "hydra-ecosystem/hydra": {
+      "split": "train",
+      "task_count": 9
+    },
+    "marshmallow-code/marshmallow": {
+      "split": "train",
+      "task_count": 13
+    },
+    "pallets/click": {
+      "split": "train",
+      "task_count": 27
+    },
+    "pallets/werkzeug": {
+      "split": "dev",
+      "task_count": 18
+    },
+    "prompt-toolkit/python-prompt-toolkit": {
+      "split": "train",
+      "task_count": 2
+    },
+    "python-attrs/attrs": {
+      "split": "dev",
+      "task_count": 10
+    },
+    "python-babel/babel": {
+      "split": "test",
+      "task_count": 14
+    },
+    "python-jsonschema/jsonschema": {
+      "split": "dev",
+      "task_count": 1
+    },
+    "python-trio/trio": {
+      "split": "test",
+      "task_count": 5
+    },
+    "sqlfluff/sqlfluff": {
+      "split": "test",
+      "task_count": 22
+    },
+    "tobymao/sqlglot": {
+      "split": "train",
+      "task_count": 38
+    },
+    "urllib3/urllib3": {
+      "split": "train",
+      "task_count": 16
+    }
+  }
+}

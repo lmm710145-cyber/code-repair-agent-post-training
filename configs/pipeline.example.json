@@ -1,0 +1,132 @@
+{
+  "workspace": "../workspace",
+  "seed": 42,
+  "model": {
+    "path": "${REPAIRLAB_MODEL:-Qwen/Qwen3.5-9B}",
+    "revision": null,
+    "local_files_only": true
+  },
+  "budget": {
+    "context_tokens": 8192,
+    "input_tokens": 7168,
+    "output_tokens": 1024,
+    "feedback_tokens": 1536,
+    "max_turns": 40,
+    "episode_output_tokens": 16384,
+    "command_seconds": 120,
+    "episode_seconds": 3600,
+    "max_format_errors": 3
+  },
+  "lora": {
+    "r": 16,
+    "alpha": 32,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ]
+  },
+  "tasks": {
+    "catalog": "tasks/catalog.json",
+    "certification_repeats": 2
+  },
+  "environment": {
+    "cpus": 2,
+    "memory": "4g",
+    "raw_output_bytes": 8388608,
+    "grading_seconds": 300,
+    "minimum_free_gib": 20
+  },
+  "teacher": {
+    "enabled": false,
+    "base_url": "${TEACHER_BASE_URL:-https://your-provider.example/v1}",
+    "model": "${TEACHER_MODEL:-your-kimi-model-id}",
+    "api_key_env": "TEACHER_API_KEY",
+    "reasoning_effort": "high",
+    "completion_tokens": 8192,
+    "parameters": {},
+    "timeout_seconds": 240,
+    "max_requests": 40000,
+    "attempts_per_task": 1,
+    "concurrency": 4
+  },
+  "sft": {
+    "initial_adapter": null,
+    "learning_rate": 1e-05,
+    "weight_decay": 0.01,
+    "batch_size": 8,
+    "epochs": 4,
+    "milestone_epochs": [
+      0.5,
+      1,
+      2,
+      3,
+      4
+    ],
+    "max_grad_norm": 1.0,
+    "holdout_fraction": 0.1,
+    "whole_trajectory_only": true
+  },
+  "grpo": {
+    "initial_adapter": null,
+    "learning_rate": 1e-06,
+    "warmup_steps": 5,
+    "weight_decay": 0,
+    "group_size": 16,
+    "task_groups_per_update": 2,
+    "updates": 50,
+    "max_sampling_rounds": 150,
+    "max_consecutive_no_signal": 10,
+    "clip_epsilon": 0.2,
+    "max_grad_norm": 1.0,
+    "replay_ratio_tolerance": 0.01,
+    "eval_updates": [
+      10,
+      25,
+      50
+    ],
+    "sampling": {
+      "temperature": 1.0,
+      "top_p": 1.0
+    },
+    "curriculum": {
+      "enabled": true,
+      "half_life_rounds": 20,
+      "score_floor": 0.05,
+      "exploration_fraction": 0.25,
+      "cold_start_rounds": 5
+    }
+  },
+  "reward": {
+    "success": 1.0,
+    "failure": 0.0,
+    "regression": -0.25,
+    "compliance_violation": -1.0,
+    "behavior_cap": 0.5,
+    "exhausted_without_submission": 0.25,
+    "units": {
+      "format": 0.02,
+      "repetition": 0.02,
+      "output_truncation": 0.01
+    }
+  },
+  "vllm": {
+    "python": "${REPAIRLAB_VLLM_PYTHON:-python3}",
+    "port": 18951,
+    "concurrency": 4,
+    "memory_fraction": 0.88
+  },
+  "evaluation": {
+    "during_training": true,
+    "sampling": {
+      "temperature": 0.7,
+      "top_p": 0.9
+    },
+    "seed": 42,
+    "k": 1
+  }
+}

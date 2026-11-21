@@ -1,0 +1,7 @@
+FROM python:3.11-slim-bookworm
+RUN apt-get update && apt-get install -y --no-install-recommends git ripgrep less \
+    && rm -rf /var/lib/apt/lists/*
+RUN pip install --no-cache-dir pytest==8.4.2 setuptools wheel
+WORKDIR /workspace
+# For real repositories, derive an image and install their pinned dependencies
+# at build time. Agent containers run without network access.

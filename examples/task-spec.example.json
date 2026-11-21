@@ -1,0 +1,41 @@
+{
+  "tasks": [
+    {
+      "task_id": "example-repo-pr-123",
+      "repo": "owner/repository",
+      "checkout": "/path/to/local/checkout",
+      "base_commit": "<base-commit-sha>",
+      "fix_commit": "<fix-commit-sha>",
+      "split": "train",
+      "defect_type": "boundary_defaults",
+      "problem_statement": "Describe observed behavior, reproduction conditions, and expected behavior; omit the fix.",
+      "image": "your-registry/shared-python-deps@sha256:<digest>",
+      "production_paths": [
+        "src/"
+      ],
+      "test_paths": [
+        "tests/"
+      ],
+      "regression_tests": [
+        "tests/"
+      ],
+      "python_path": "/workspace/src",
+      "import_package": "your_package",
+      "setup_commands": [
+        "python -m pip install --no-deps --no-build-isolation --no-index -e /workspace"
+      ],
+      "source_kind": "issue_or_pr_report",
+      "source_review": {
+        "status": "pending",
+        "reviewer": "",
+        "evidence": [],
+        "issue_url": "https://github.com/owner/repository/issues/123",
+        "pr_url": "https://github.com/owner/repository/pull/124",
+        "timing": "contemporaneous_with_pr",
+        "implementation_hints_removed": true,
+        "problem_test_consistency": "pending",
+        "human_independent_review": "pending"
+      }
+    }
+  ]
+}
